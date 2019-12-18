@@ -1,0 +1,104 @@
+{{field1}} {{id}}
+<form [formGroup]="statsFrom" #statsFormDirective="ngForm" (ngSubmit)="submitDetails()">
+    <div class="heading">
+        <mat-card> Task Details
+        </mat-card>
+    </div>
+    <div class="HomePage">
+        <div>
+            <mat-form-field class="fields">
+                <input matInput placeholder="Reference Number:" formControlName="refNumber">
+            </mat-form-field>
+
+            <mat-form-field class="fields">
+                <textarea matInput cdkTextareaAutosize #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="1" cdkAutosizeMaxRows="3" placeholder="Request summary:"
+                    formControlName="reqSummary"></textarea>
+            </mat-form-field>
+        </div>
+
+        <div>
+
+            <mat-form-field class="fields">
+                <mat-select matInput placeholder="Request State:" formControlName="reqstate">
+                    <mat-option>-Select Request State-</mat-option>
+                    <mat-option *ngFor="let state of State" [value]="state">{{state}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field class="fields">
+                <mat-select matInput placeholder="Assigned To:" formControlName="assignedTo">
+                    <mat-option>-Select Assigned To-</mat-option>
+                    <mat-option *ngFor="let name of Name" [value]="name">{{name}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+
+        <div>
+            <mat-form-field class="fields">
+                <mat-select matInput placeholder="Application:" formControlName="application">
+                    <mat-option>-Select Application-</mat-option>
+                    <mat-option *ngFor="let application of Application" [value]="application">{{application}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field class="fields">
+                <mat-select matInput placeholder="Ticket type :" formControlName="ticketType">
+                    <mat-option>-Select Ticket Type-</mat-option>
+                    <mat-option *ngFor="let ticket of Ticket" [value]="ticket">{{ticket}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+
+        <div>
+            <mat-form-field class="fields">
+                <input matInput [matDatepicker]="picker" placeholder="Creation Date" formControlName="createDate">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+
+            <mat-form-field class="fields">
+                <input matInput [matDatepicker]="picker1" placeholder="Closed Date" formControlName="closeDate">
+                <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                <mat-datepicker #picker1></mat-datepicker>
+            </mat-form-field>
+
+            <mat-form-field class="fields">
+                <input matInput placeholder="Requested By:" formControlName="reqBy">
+                <mat-error *ngIf="statsFrom.controls.reqBy.invalid">
+                    Only
+                    <strong>Alphabets allowed</strong>
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="fields">
+                <mat-select placeholder="Priority:" formControlName="priority">
+                    <mat-option>-Select Priority-</mat-option>
+                    <mat-option *ngFor="let priority of Priority" [value]="priority">{{priority}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+
+        <div>
+            <mat-form-field class="fields">
+                <textarea matInput placeholder="L3/EM/ONBOARDING/EMS UI:" formControlName="purpose"></textarea>
+            </mat-form-field>
+
+            <mat-form-field class="fields">
+                <textarea matInput placeholder="Comments:" formControlName="comments"></textarea>
+            </mat-form-field>
+
+            <mat-form-field class="fields">
+                <input matInput type="number" placeholder="Efforts in Person Days:" formControlName="efforts">
+            </mat-form-field>
+        </div>
+        <div class = "button" >
+            <button mat-raised-button color="primary" [disabled]="!statsFrom.valid">Submit Details</button>
+            <button mat-raised-button style="margin-left: 1%" color="warn"(click)="resetForm()">Reset Form</button>
+
+        </div>
+    </div>
+</form>

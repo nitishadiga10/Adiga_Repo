@@ -1,0 +1,18 @@
+<mat-toolbar color="primary">
+    <span>HRM TEAM MONTHLY STATS</span>
+    <!-- This fills the remaining space of the current row -->
+    <button mat-button style="text-align: left" [matMenuTriggerFor]="menu" color="warn">Click Here Mate!</button>
+    <mat-menu #menu="matMenu">
+        <button mat-menu-item routerLink="" routerLinkActive="active">
+                <!-- <mat-icon style="margin: 0px; padding: 5px;right: 0px">home</mat-icon> -->
+                <span>Home</span></button>
+        <button mat-menu-item routerLink="/Stats" routerLinkActive="active">Task Details</button>
+        <button mat-menu-item routerLink="/Leaves" routerLinkActive="active">Leave Details</button>
+        <button mat-menu-item routerLink="/ExHomePage" routerLinkActive="active">Intial Home Page</button>
+    </mat-menu>
+    <span class="example-fill-remaining-space"></span>
+    <span style="max-width:200px; margin-top: 5px; ">
+        <img style="width:50px; margin-top: 5px; " src="../assets/logo.png">
+    </span>
+</mat-toolbar>
+<router-outlet></router-outlet>

@@ -1,0 +1,27 @@
+<mat-card class="card-class">
+    <mat-card-header>
+        <mat-card-title>Register Yourself</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <form [formGroup]="registerForm">
+            <div class="login-card">
+                <mat-form-field class="fields">
+                    <input matInput placeholder="First Name" formControlName="firstName">
+                </mat-form-field>
+                <mat-form-field class="fields">
+                    <input matInput placeholder="Last Name" formControlName="lastName">
+                </mat-form-field>
+                <mat-form-field class="fields">
+                    <input matInput placeholder="User Name" formControlName="userName">
+                </mat-form-field>
+                <mat-form-field class="fields">
+                    <input matInput type="password" placeholder="Password:" formControlName="password">
+                </mat-form-field>
+            </div>
+        </form>
+    </mat-card-content>
+    <mat-card-actions style="margin-bottom: 5px">
+        <button mat-raised-button color="primary" class="button" [disabled]="!registerForm.valid" (click)= register()>Register</button>
+        <button mat-raised-button color="primary" routerLink="/Login">Cancel</button>
+    </mat-card-actions>
+</mat-card>

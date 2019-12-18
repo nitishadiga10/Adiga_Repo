@@ -1,0 +1,45 @@
+body{
+    margin: 0;
+}
+.heading{
+    width: 100%;
+}
+.HomePage{
+    border-radius: 5px;
+   display: flex;
+   margin-top: 5px;
+   margin: 5px;
+   padding-left: 2%;
+   flex-direction: column;
+   border: 1px solid black;
+   right: 5px;
+}
+.fields{
+    height: 60px;
+    width: 47%;
+    padding: 5px;
+}
+.button{
+    width: 100%;
+    justify-content: center;
+    margin-bottom: 10px;
+    margin-left: 5px;
+}
+.mat-card {
+    padding-top: 5px;
+    text-align: center;
+    margin-left: 5px;
+    margin-top: 5px;
+    color: white;
+    border-radius: 5px;
+    background-color:#673ab7 !important;
+    padding: 5px !important;
+}
+.mat-toolbar.mat-primary {
+    background: blue;
+    color: #fff;
+  }
+  input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  opacity: 1;
+}
