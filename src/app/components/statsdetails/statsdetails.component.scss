@@ -1,47 +1,47 @@
 body{
     margin: 0;
 }
-
+.heading{
+    width: 100%;
+}
+.Grid {
+    width: 500px; 
+    height: 150px; 
+    margin-left: 10px;
+    margin-top: 10px;
+}
 .HomePage{
     border-radius: 5px;
    display: flex;
    margin-top: 5px;
-   margin-left: 5px;
+   margin: 5px;
    padding-left: 2%;
+   margin-left: 10px;
    flex-direction: column;
    border: 1px solid black;
+   right: 5px;
 }
-.HomePage2{
-    border-radius: 5px;
-    display: flex;
-    margin-top: 5px;
-    margin-left: 5px;
-    padding-right: 5px;
-    padding-left: 3%;
-    flex-direction: column;
-    border: 1px solid black;
- }
 .fields{
-    height: 65px;
+    height: 60px;
     width: 47%;
-    padding: 5px;
-}
-.fields1{
-    height: 65px;
-    width: 45%;
     padding: 5px;
 }
 .button{
     width: 100%;
-    display: flex;
     justify-content: center;
-    margin-top: 1%;
-    flex-direction: row;
+    margin-bottom: 10px;
+    margin-left: 10px;
+}
+.button1{
+    width: 100%;
+    justify-content: center;
+    margin-top: 10px;
+    margin-left: 10px;
 }
 .mat-card {
     padding-top: 5px;
     text-align: center;
-    margin: 5px;
+    margin-left: 5px;
     margin-top: 5px;
     color: white;
     border-radius: 5px;

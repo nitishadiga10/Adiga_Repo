@@ -12,7 +12,7 @@ export class HomeScreenComponent implements OnInit {
   @ViewChild('statsFormDirective', { static: false }) statsFormDirective: NgForm;
   constructor(private fb: FormBuilder) { }
   leaveForm: FormGroup;
-  statsFrom = this.fb.group({
+  statsForm = this.fb.group({
     refNumber: ['', [Validators.required,Validators.pattern('^[a-zA-z{0-9}]+$')]],
     reqSummary: ['', Validators.required],
     reqstate: ['', Validators.required],
@@ -59,7 +59,7 @@ export class HomeScreenComponent implements OnInit {
   }
 
   submitDetails() {
-    console.log(this.statsFrom.controls);
+    console.log(this.statsForm.controls);
   }
   resetForm(){
     setTimeout(() => {

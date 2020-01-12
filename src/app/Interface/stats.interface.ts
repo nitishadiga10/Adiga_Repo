@@ -1,4 +1,5 @@
 export interface IStats {
+    _id?: number;
     refNumber?: string;
     reqSummary?: string;
     reqstate?: string;

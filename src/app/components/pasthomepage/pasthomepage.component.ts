@@ -1,20 +1,19 @@
-import { Component, OnInit, ViewEncapsulation, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, FormBuilder, FormArray, NgForm, FormGroupDirective } from '@angular/forms';
 import { Validators } from '@angular/forms';
-import { StatsService } from '../stats.service';
-import { ILeaves } from '../Interface/stats.interface';
-
+import { StatsdetailsComponent } from '../statsdetails/statsdetails.component';
 @Component({
-  selector: 'app-leavedetails',
-  templateUrl: './leavedetails.component.html',
-  styleUrls: ['./leavedetails.component.scss']
+  selector: 'app-pasthomepage',
+  templateUrl: './pasthomepage.component.html',
+  styleUrls: ['./pasthomepage.component.scss']
 })
-export class LeavedetailsComponent implements OnInit {
-  @ViewChild('firstfield', { static: false }) firstfield: ElementRef;
+export class PasthomepageComponent implements OnInit {
+  name: string = 'Nitish';
+  @ViewChild(StatsdetailsComponent, { static: false }) _StatsdetailsComponent: StatsdetailsComponent;
   @ViewChild('statsFormDirective', { static: false }) statsFormDirective: NgForm;
-  constructor(private fb: FormBuilder, private _statsService: StatsService) { }
+  constructor(private fb: FormBuilder) { }
   leaveForm: FormGroup;
-  statsFrom = this.fb.group({
+  statsForm = this.fb.group({
     refNumber: ['', [Validators.required, Validators.pattern('^[a-zA-z{0-9}]+$')]],
     reqSummary: ['', Validators.required],
     reqstate: ['', Validators.required],
@@ -37,9 +36,10 @@ export class LeavedetailsComponent implements OnInit {
   Ticket: any = ["EMS", "HRM3", "MIUAC"];
   Priority: any = ["High", "Medium", "Low"];
 
-  ngAfterViewInit(){
-    console.log('firstfield', this.firstfield);
-  }
+  // ngAfterViewInit() {
+  //   this._StatsdetailsComponent.submitDetails();
+  // }
+
   ngOnInit() {
     this.leaveForm = this.fb.group({
       leaves: this.fb.array([
@@ -63,14 +63,15 @@ export class LeavedetailsComponent implements OnInit {
     leaves.removeAt(index);
   }
 
+  submitDetails() {
+    console.log(this.statsForm.controls);
+  }
   resetForm() {
     setTimeout(() => {
       this.statsFormDirective.resetForm();
     }, 0);
   }
   submitLeaves() {
-    const leavesData: ILeaves = this.leaveForm.controls.leaves.value;
-    this._statsService.sendLeaveData(leavesData);
-
+    console.log(this.leaveForm.controls.leaves.value);
   }
 }

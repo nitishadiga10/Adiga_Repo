@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { FormBuilder, Validators } from '../../../node_modules/@angular/forms';
-import { Router } from '../../../node_modules/@angular/router';
-import { MatSnackBar } from '../../../node_modules/@angular/material';
+import { FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-login-page',
