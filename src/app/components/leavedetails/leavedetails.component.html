@@ -5,7 +5,7 @@
                 <mat-card>Leave Details</mat-card>
             </div>
             <div class="HomePage">
-                <div formArrayName="leaves" *ngFor="let item of leaveForm.get('leaves').controls; let i = index;">
+                <div formArrayName="leaves" *ngFor="let item of leaveForm.get('leaves')['controls']; let i = index;">
                     <div [formGroupName]="i">
                         <mat-form-field #firstfield class="fields">
                             <input matInput [matDatepicker]="picker3" placeholder="Leave Date" formControlName="leaveDate">
