@@ -66,7 +66,8 @@ export class LeavedetailsComponent implements OnInit {
   onSelectionChanged(event: any) {
     var selectedRows = this.agGrid.api.getSelectedRows();
     this.disableButtons = selectedRows.length === 0;
-    this.deleteData = this.deleteData ? false : true;
+    console.log(selectedRows.length);
+    this.deleteData = selectedRows.length ? true : false;
   }
   deleteLeaves() {
     const selectedNodes = this.agGrid.api.getSelectedNodes();

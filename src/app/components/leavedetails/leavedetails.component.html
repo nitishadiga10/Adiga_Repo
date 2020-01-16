@@ -32,8 +32,8 @@
             <mat-card> Leaves History
             </mat-card>
         </div>
-        <ag-grid-angular #agGrid style="width: 97%; height: 500px; margin-left: 10px; margin-top: 10px;" class="ag-theme-balham" [rowData]="rowData"
-            [columnDefs]="columnDefs" (selectionChanged)='onSelectionChanged($event)'>
+        <ag-grid-angular #agGrid style="width: 97%; height: 500px; margin-left: 10px; margin-top: 10px;" class="ag-theme-balham"
+            [rowData]="rowData" [columnDefs]="columnDefs" (selectionChanged)='onSelectionChanged($event)' rowSelection="multiple">
         </ag-grid-angular>
         <div class="button1">
             <button mat-raised-button color="primary" [disabled]="!deleteData" (click)="deleteLeaves()">Delete Leave</button>

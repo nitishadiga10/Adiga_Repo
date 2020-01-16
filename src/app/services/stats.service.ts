@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { ILeaves, IStats } from '../Interface/stats.interface';
 import { MatDialog } from '@angular/material';
 import { DialogBoxComponent } from '../components/dialog-box/dialog-box.component';
-import { HttpClient } from '../../../node_modules/@angular/common/http';
+import { HttpClient, HttpParams } from '../../../node_modules/@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -17,9 +17,16 @@ export class StatsService {
     return this._http.post(url, leavesData);
   }
   deleteLeaveData(leavesData: ILeaves) {
-    console.log("Delete Leaves Data", leavesData);
-    const url = 'http://localhost:8000/leaveDetails/' + leavesData[0]['_id'];
-    return this._http.delete(url);
+    const paramsObj = {};
+    for (let i = 0; i < leavesData.length; i++) {
+      paramsObj['id' + i] = leavesData[i]['_id'];
+    }
+    console.log("Delete Leaves Data", paramsObj);
+    const params = new HttpParams({ fromObject: paramsObj });
+
+    const url = 'http://localhost:8000/leaveDetails/';
+
+    return this._http.delete(url, { params });
   }
   sendStatsData(stats: IStats) {
     console.log("Stats Data: ", stats);
