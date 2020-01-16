@@ -7,6 +7,8 @@ import { MatDialog } from '../../../../node_modules/@angular/material';
 import { DialogBoxComponent } from '../dialog-box/dialog-box.component';
 import { HttpClient } from '../../../../node_modules/@angular/common/http';
 import { AgGridAngular } from '../../../../node_modules/ag-grid-angular';
+import { environment } from '../../../environments/environment';
+
 
 @Component({
   selector: 'app-leavedetails',
@@ -52,7 +54,9 @@ export class LeavedetailsComponent implements OnInit {
     this.loadTable();
   }
   loadTable() {
-    const url = 'http://localhost:8000/leaveDetails/';
+    // const url = 'http://localhost:8000/leaveDetails/';
+    const url = environment.url + 'leaveDetails/';
+
     this._http.get(url).subscribe(
       data => {
         console.log('get leaves data', data);

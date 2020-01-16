@@ -7,6 +7,7 @@ import { DialogBoxComponent } from '../dialog-box/dialog-box.component';
 import { MatDialog } from '../../../../node_modules/@angular/material';
 import { HttpClient } from '../../../../node_modules/@angular/common/http';
 import { AgGridAngular } from '../../../../node_modules/ag-grid-angular';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-statsdetails',
@@ -70,7 +71,9 @@ export class StatsdetailsComponent implements OnInit {
 
   }
   loadTable() {
-    const url = 'http://localhost:8000/taskDetails/';
+    // const url = 'http://localhost:8000/taskDetails/';
+    const url = environment.url + 'taskDetails/';
+
     this._http.get(url).subscribe(
       data => {
         console.log('get data', data);
