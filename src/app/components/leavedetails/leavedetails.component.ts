@@ -33,12 +33,6 @@ export class LeavedetailsComponent implements OnInit {
   disableButtons: any = 0;
   deleteData: boolean = false;
 
-  State: any = ["Complete", "On Hold", "In Progress"];
-  Name: any = ["Nitish", "Ritabrata", "Shwetha"];
-  Application: any = ["EMS", "HRM3", "MIUAC"];
-  Ticket: any = ["EMS", "HRM3", "MIUAC"];
-  Priority: any = ["High", "Medium", "Low"];
-
   ngAfterViewInit() {
     console.log('firstfield', this.firstfield);
   }

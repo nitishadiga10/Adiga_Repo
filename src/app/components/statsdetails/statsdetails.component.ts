@@ -45,9 +45,9 @@ export class StatsdetailsComponent implements OnInit {
   updateData: boolean = false;
 
   State: any = ["Complete", "On Hold", "In Progress"];
-  Name: any = ["Nitish", "Ritabrata", "Shwetha"];
-  Application: any = ["EMS", "HRM3", "MIUAC"];
-  Ticket: any = ["EMS", "HRM3", "MIUAC"];
+  Name: any = ["Nitish", "Anusha", "Nayana"];
+  Application: any = ["Proj 1", "Proj 2", "Proj 3"];
+  Ticket: any = ["Bug", "Enhancement", "New"];
   Priority: any = ["High", "Medium", "Low"];
 
   ngOnInit() {

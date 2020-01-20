@@ -28,13 +28,6 @@ export class HomeScreenComponent implements OnInit {
     purpose: ['', Validators.required]
   });
 
-
-  State: any = ["Complete", "On Hold", "In Progress"];
-  Name: any = ["Nitish", "Ritabrata", "Shwetha"];
-  Application: any = ["EMS", "HRM3", "MIUAC"];
-  Ticket: any = ["EMS", "HRM3", "MIUAC"];
-  Priority: any = ["High", "Medium", "Low"];
-
   ngOnInit() {
     this.leaveForm = this.fb.group({
       leaves: this.fb.array([
