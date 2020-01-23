@@ -136,6 +136,7 @@ export class StatsdetailsComponent implements OnInit {
         console.log("from node.js ", data);
         this.openDialog(data);
         this.loadTable();
+        this.updateData = false;
         this.resetForm();
       },
       error => {
