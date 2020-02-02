@@ -46,6 +46,7 @@ export class LoginPageComponent implements OnInit {
           duration: 2000
         });
         this.router.navigate([this.returnUrl]);
+        
       },
       error => {
         console.log("error from node.js ", error);

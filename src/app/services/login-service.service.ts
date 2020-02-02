@@ -15,7 +15,7 @@ export class LoginService {
   constructor(private _http: HttpClient) {
     this.currentUserSubject = new BehaviorSubject<any>(JSON.parse(localStorage.getItem('currentUser')));
     this.currentuser = this.currentUserSubject.asObservable();
-    console.log('user data', JSON.parse(localStorage.getItem('currentUser')));
+    // console.log('user data', JSON.parse(localStorage.getItem('currentUser')));
   }
 
 
@@ -24,7 +24,12 @@ export class LoginService {
     const url = environment.url + 'User/' + 'login/';
     return this._http.post(url, loginData)
       .pipe(map(user => {
-          console.log('user data', user);
+          // console.log('user data', user);
+
+
+
+
+          
         // login successful if there's a jwt token in the response
         if (user && user['jwt']) {
           // store user details and jwt token in local storage to keep user logged in between page refreshes

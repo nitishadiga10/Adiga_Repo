@@ -13,7 +13,10 @@ export class AppComponent implements OnInit {
   title = 'LoginProject';
   message: string = "Logged-Out";
   message1: string = "Successfully";
-  constructor(private router: Router, private loginService: LoginService,private _snackBar: MatSnackBar) { }
+  localStorage: any = localStorage;
+
+  constructor(private router: Router, private loginService: LoginService, private _snackBar: MatSnackBar) {
+  }
   ngOnInit() {
     // this.router.navigate([''])
   }
@@ -23,6 +26,5 @@ export class AppComponent implements OnInit {
       duration: 2000
     });
     this.router.navigate(['/Login']);
-
   }
 }

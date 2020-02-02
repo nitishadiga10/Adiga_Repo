@@ -8,14 +8,14 @@
             <span>Home</span></button>
         <button mat-menu-item routerLink="/Stats" routerLinkActive="active">Task Details</button>
         <button mat-menu-item routerLink="/Leaves" routerLinkActive="active">Leave Details</button>
-        <button mat-menu-item routerLink="/ExHomePage" routerLinkActive="active">Intial Home Page</button>
+        <!-- <button mat-menu-item routerLink="/ExHomePage" routerLinkActive="active">Intial Home Page</button> -->
     </mat-menu>
     <span class="example-fill-remaining-space"></span>
     <!-- <button mat-button routerLink="/login" routerLinkActive="active">
         <mat-icon>logout</mat-icon>
         <span>Login</span>
     </button> -->
-    <button mat-button (click)="logout()">
+    <button mat-button [disabled] = "localStorage.getItem('currentUser') ? false : true" (click)="logout()">
         <mat-icon>logout</mat-icon>
         <span>Logout</span>
     </button>
