@@ -36,8 +36,7 @@ const routes: Routes = [
   },
   {
     path: 'Register',
-    component: RegisterPageComponent,
-    canActivate: [AuthGuard]
+    component: RegisterPageComponent
   },
   {
     path: 'Login',
