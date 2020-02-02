@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { ILeaves, IStats } from '../Interface/stats.interface';
+import { ILeaves, IStats } from '../Interfaces/stats.interface';
 import { MatDialog } from '@angular/material';
 import { DialogBoxComponent } from '../components/dialog-box/dialog-box.component';
-import { HttpClient, HttpParams } from '../../../node_modules/@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 
 @Injectable({

@@ -4,13 +4,21 @@
     <button mat-button style="text-align: left" [matMenuTriggerFor]="menu" color="warn">Click Here Mate!</button>
     <mat-menu #menu="matMenu">
         <button mat-menu-item routerLink="" routerLinkActive="active">
-                <!-- <mat-icon style="margin: 0px; padding: 5px;right: 0px">home</mat-icon> -->
-                <span>Home</span></button>
+            <!-- <mat-icon style="margin: 0px; padding: 5px;right: 0px">home</mat-icon> -->
+            <span>Home</span></button>
         <button mat-menu-item routerLink="/Stats" routerLinkActive="active">Task Details</button>
         <button mat-menu-item routerLink="/Leaves" routerLinkActive="active">Leave Details</button>
         <button mat-menu-item routerLink="/ExHomePage" routerLinkActive="active">Intial Home Page</button>
     </mat-menu>
     <span class="example-fill-remaining-space"></span>
+    <!-- <button mat-button routerLink="/login" routerLinkActive="active">
+        <mat-icon>logout</mat-icon>
+        <span>Login</span>
+    </button> -->
+    <button mat-button (click)="logout()">
+        <mat-icon>logout</mat-icon>
+        <span>Logout</span>
+    </button>
     <span style="max-width:200px; margin-top: 5px; ">
         <img style="width:50px; margin-top: 5px; " src="../assets/logo.png">
     </span>

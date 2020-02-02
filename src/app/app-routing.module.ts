@@ -6,36 +6,44 @@ import { LeavedetailsComponent } from './components/leavedetails/leavedetails.co
 import { PasthomepageComponent } from './components/pasthomepage/pasthomepage.component';
 import { LoginPageComponent } from './components/login-page/login-page.component';
 import { RegisterPageComponent } from './components/register-page/register-page.component';
+import { AuthGuard } from './guards/auth.guard';
 
-const routes: Routes = [{ path: 'Stats', component: StatsdetailsComponent },
-{
-  path: 'Leaves',
-  component: LeavedetailsComponent
-},
-{
-  path: 'ExHomePage',
-  component: PasthomepageComponent
-},
-{
-  path: 'HomePage',
-  component: HomeScreenComponent
-},
-{
-  path: 'Register',
-  component: RegisterPageComponent
-},
-{
-  path: 'Login',
-  component: LoginPageComponent
-},
-{
-  path: '',
-  // redirectTo: '',
-  redirectTo: 'Login',
-  // component: LoginPageComponent,
-  pathMatch: "full"
-},
-{ path: '**',redirectTo: 'Login', pathMatch: "full"  }
+const routes: Routes = [
+  {
+    path: '',
+    component: HomeScreenComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'Stats',
+    component: StatsdetailsComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'Leaves',
+    component: LeavedetailsComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'ExHomePage',
+    component: PasthomepageComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'HomePage',
+    component: HomeScreenComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'Register',
+    component: RegisterPageComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'Login',
+    component: LoginPageComponent
+  },
+  { path: '**', redirectTo: '', pathMatch: "full" }
 ];
 
 @NgModule({

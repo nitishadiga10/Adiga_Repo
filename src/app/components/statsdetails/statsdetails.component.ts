@@ -2,11 +2,11 @@ import { Component, OnInit, ViewEncapsulation, ViewChild, Input } from '@angular
 import { FormControl, FormGroup, FormBuilder, FormArray, NgForm, FormGroupDirective } from '@angular/forms';
 import { Validators } from '@angular/forms';
 import { StatsService } from '../../services/stats.service';
-import { IStats } from '../../Interface/stats.interface';
+import { IStats } from '../../Interfaces/stats.interface';
 import { DialogBoxComponent } from '../dialog-box/dialog-box.component';
-import { MatDialog } from '../../../../node_modules/@angular/material';
-import { HttpClient } from '../../../../node_modules/@angular/common/http';
-import { AgGridAngular } from '../../../../node_modules/ag-grid-angular';
+import { MatDialog } from '@angular/material';
+import { HttpClient } from '@angular/common/http';
+import { AgGridAngular } from 'ag-grid-angular';
 import { environment } from '../../../environments/environment';
 
 @Component({
@@ -119,12 +119,14 @@ export class StatsdetailsComponent implements OnInit {
     this._statsService.sendStatsData(this.buildData()).subscribe(
       data => {
         console.log("from node.js ", data);
-        this.openDialog(data);
+        this.openDialog(data['message']);
         this.loadTable();
+        this.resetForm();
+
       },
       error => {
         console.log("error from node.js ", error);
-        this.openDialog(error);
+        this.openDialog(error.message);
       }
     )
 
@@ -134,14 +136,14 @@ export class StatsdetailsComponent implements OnInit {
     this._statsService.updateStatsData(this.buildData()).subscribe(
       data => {
         console.log("from node.js ", data);
-        this.openDialog(data);
+        this.openDialog(data['message']);
         this.loadTable();
         this.updateData = false;
         this.resetForm();
       },
       error => {
         console.log("error from node.js ", error);
-        this.openDialog(error);
+        this.openDialog(error.message);
       }
     )
 

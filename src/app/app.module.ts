@@ -11,12 +11,12 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-import {MatNativeDateModule, MatRippleModule} from '@angular/material/core';
-import {MatIconModule} from '@angular/material/icon';
-import {MatCardModule} from '@angular/material';
-import {MatMenuModule} from '@angular/material/menu';
-import {MatDialogModule} from '@angular/material';
-import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatIconModule } from '@angular/material/icon';
+import { MatCardModule } from '@angular/material';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatDialogModule } from '@angular/material';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { DialogBoxComponent } from './components/dialog-box/dialog-box.component';
 import { HomeScreenComponent } from './components/home-screen/home-screen.component';
 import { StatsdetailsComponent } from './components/statsdetails/statsdetails.component';
@@ -65,10 +65,7 @@ import { AgGridModule } from 'ag-grid-angular';
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
-        { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }
-
-        // provider used to create fake backend
-        // fakeBackendProvider
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]
 })

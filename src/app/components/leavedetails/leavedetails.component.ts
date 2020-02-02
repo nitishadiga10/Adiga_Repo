@@ -2,11 +2,11 @@ import { Component, OnInit, ViewEncapsulation, ViewChild, ElementRef } from '@an
 import { FormControl, FormGroup, FormBuilder, FormArray, NgForm, FormGroupDirective } from '@angular/forms';
 import { Validators } from '@angular/forms';
 import { StatsService } from '../../services/stats.service';
-import { ILeaves } from '../../Interface/stats.interface';
-import { MatDialog } from '../../../../node_modules/@angular/material';
+import { ILeaves } from '../../Interfaces/stats.interface';
+import { MatDialog } from '@angular/material';
 import { DialogBoxComponent } from '../dialog-box/dialog-box.component';
-import { HttpClient } from '../../../../node_modules/@angular/common/http';
-import { AgGridAngular } from '../../../../node_modules/ag-grid-angular';
+import { HttpClient } from '@angular/common/http';
+import { AgGridAngular } from 'ag-grid-angular';
 import { environment } from '../../../environments/environment';
 
 
@@ -17,7 +17,7 @@ import { environment } from '../../../environments/environment';
 })
 export class LeavedetailsComponent implements OnInit {
   @ViewChild('firstfield', { static: false }) firstfield: ElementRef;
-  @ViewChild('statsFormDirective', { static: false }) statsFormDirective: NgForm;
+  @ViewChild('leaveFormDirective', { static: false }) leaveFormDirective: NgForm;
   @ViewChild('agGrid', { static: false }) agGrid: AgGridAngular;
   constructor(private dialog: MatDialog, private fb: FormBuilder, private _statsService: StatsService, private _http: HttpClient) { }
   leaveForm: FormGroup;
@@ -75,13 +75,13 @@ export class LeavedetailsComponent implements OnInit {
     this._statsService.deleteLeaveData(selectedData).subscribe(
       data => {
         console.log("from node.js ", data);
-        this.openDialog(data);
+        this.openDialog(data['message']);
         this.loadTable();
         this.deleteData = this.deleteData ? false : true;
       },
       error => {
         console.log("error from node.js ", error);
-        this.openDialog(error);
+        this.openDialog(error.message);
       }
     )
   }
@@ -103,14 +103,21 @@ export class LeavedetailsComponent implements OnInit {
     this._statsService.sendLeaveData(leavesData).subscribe(
       data => {
         console.log("from node.js ", data);
-        this.openDialog(data);
+        this.openDialog(data['message']);
         this.loadTable();
+        this.resetForm();
+
       },
       error => {
         console.log("error from node.js ", error);
-        this.openDialog(error);
+        this.openDialog(error.message);
       }
     )
+  }
+  resetForm() {
+    setTimeout(() => {
+      this.leaveFormDirective.resetForm();
+    }, 0);
   }
   openDialog(data: any) {
     this.dialog.open(DialogBoxComponent, {
